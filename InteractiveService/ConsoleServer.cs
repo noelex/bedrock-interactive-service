@@ -120,7 +120,9 @@ namespace InteractiveService
             BitConverter.GetBytes(time).CopyTo(keepAlive, 4);
             BitConverter.GetBytes(interval).CopyTo(keepAlive, 8);
 
+#pragma warning disable CA1416 // This application is supposed to run on windows only.
             socket.IOControl(IOControlCode.KeepAliveValues, keepAlive, null);
+#pragma warning restore CA1416
         }
 
         public async Task<bool> TryWriteLineAsync(string line, CancellationToken cancellationToken)
@@ -169,7 +171,7 @@ namespace InteractiveService
             {
                 throw oc;
             }
-            catch (Exception e)
+            catch
             {
                 SignalConnection(false);
             }

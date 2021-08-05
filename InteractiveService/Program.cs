@@ -28,7 +28,10 @@ namespace InteractiveService
             if (!Environment.UserInteractive)
             {
                 using var service = new Service(args);
+
+#pragma warning disable CA1416 // This application is supposed to run on windows only.
                 ServiceBase.Run(service);
+#pragma warning restore CA1416
             }
             else
             {
