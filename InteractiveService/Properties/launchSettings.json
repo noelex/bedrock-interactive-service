@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "InteractiveService": {
+      "commandName": "Project",
+      "commandLineArgs": "--stop-command stop --stop-timeout 50000 --stop-message \"vellum quit correctly\" D:\\bedrock\\vellum.exe"
+    }
+  }
+}
