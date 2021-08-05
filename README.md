@@ -12,7 +12,7 @@ So I wrote this small utility to host Bedrock Dedicated Server inside Windows Se
 
 Download a copy of realse archive from [release page](https://github.com/noelex/bedrock-interactive-service/releases), and extract it to anywhere you like.
 
-Please note that the server application `iss` operates Windows Service, thus the release page provides Windows binaries only. You can run the client application `isc` on Windows, Linux and MacOS.
+Please note that the server utility `iss` operates Windows Service, thus only Windows release contains `iss` binary. Linux and MacOS releases contains only client binary.
 
 # Usage
 
