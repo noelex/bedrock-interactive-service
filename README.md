@@ -34,7 +34,7 @@ To connect to a hosted application, simply execute `isc` and it will try to conn
 
 In case you want to connect services hosted on another computer or another port, you can write `isc -p 21332 192.168.1.10`.
 
-Please note that a single instance of Bedrock Interative Service allows only one client to connect in the same time.
+Please note that a single instance of Bedrock Interactive Service allows only one client to connect in the same time.
 
 After successfully connecting to the server, you can type commands and see output just like using the hosted application directly.
 
