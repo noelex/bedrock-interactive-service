@@ -4,7 +4,7 @@ Bedrock Interactive Service is a Windows Service host for interactive console ap
 
 # Motivation
 
-Bedrock Dedicated Server, as it's name suggests, is a server application, which is supposed to run as a service. But unfortunately, it's actually an interative console application running on desktop, thus lacks of some nice features offered by Windows Service, such as automatic startup, crash recovery and most importantly, I can't stop it by accident.
+Bedrock Dedicated Server, as it's name suggests, is a server application, which is supposed to run as a service. But unfortunately, it's actually an interative console application running on desktop, thus lacks of some nice features offered by Windows Service, such as automatic startup, crash recovery and most importantly, I won't stop it by accident.
 
 So I wrote this small utility to host Bedrock Dedicated Server inside Windows Service, while still allowing me to connect to the server over TCP/IP to execute those nice server commands.
 
@@ -16,7 +16,7 @@ Please note that the server application `iss` operates Windows Service, thus the
 
 # Usage
 
-Bedrock Interactive Service comes with two console applications, `iss` and `isc`.
+Bedrock Interactive Service comes with utilities, `iss` and `isc`.
 `iss` is the server application to host interactive console applications, and `isc` is a client application used to connect to and interact with hosted applications.
 
 ## Running on desktop
@@ -25,7 +25,7 @@ Before hosting your application as Windows Service, you should test it on deskto
 ```
 iss --stop-command stop --stop-message "Quit correctly" C:\Bedrock\bedrock_server.exe
 ```
-The above command invokes `bedrock_server.exe` when started, and opens TCP port 21331 on localhost waiting for `isc` to connect. When stopping `iss`,
+The above command invokes `bedrock_server.exe` when executed, and opens TCP port 21331 on localhost waiting for `isc` to connect. When `iss` is being stopped,
 it will first send "stop" to `bedrock_server.exe` and wait for it to print "Quit correctly", allowing `bedrock_server.exe` to perform clean shutdown.
 
 ## Connecting to hosted application
@@ -81,9 +81,9 @@ sc start "Vellum Managed Bedrock Service"
 
 Connect to the service with `isc` utility, now you can type vellum and Bedrock server commands as normal.
 
-# Security condierations
+# Security considerations
 
-Bedrock Interactive Server does not implement any authentication mechanism. It's highly recommended to configure `iss` to listen on trusted network only. If you want to connect servers on the internet, you should use `ssh` or similar tools to create a secure tunnel, and forward `iss` port via the secure tunnel.
+Bedrock Interactive Service does provide any authentication mechanism. It's highly recommended to configure `iss` to listen on trusted network only. If you want to connect servers on the internet, you should use `ssh` or similar tools to create a secure tunnel, and forward `iss` port via the secure tunnel.
 
 `iss` can also host `cmd.exe` and other command prompts. Before doing so, please
 make sure that you understand the risk of exposing your command prompt to the public
